@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ededi tap</title>
+    <style>
+        body{
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: url('/pic.png') center/cover; 
+            color: wheat;
+        }
+        h1{
+            color: #fff;
+            margin: 100px;
+        }
+        input{
+            width: 100px;
+            outline: none;
+        }
+        input:hover{
+            scale: 1.45;
+            background: #fff;
+        }
+        
+        input, button{
+            height: 20px;
+            margin: 20px;
+            scale: 1.5;
+            background: #ccc;
+            border: 3px solid #4f4a4a;
+        }
+        button{
+            height: 25px;
+           
+        }
+        button:hover{
+            scale: 1.45;
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1>1 ilə 100 arası say tutdum, tapa bilərsən ?</h1>
+    <br /> 
+    <h2 id="oyun"></h2>
+       <input id="inp" type="number" min="1" max="100" />
+       <button onclick="yoxla()">Yoxla</button>
+
+       <script>
+        const oyun = document.querySelector("#oyun")
+        const inp = document.querySelector("#inp")
+        const x = rnd( 1, 100)
+        let cehd = 1
+
+        function yoxla(){
+            oyun.innerHTML = `${cehd++}-ci Cehd: `
+            oyun.innerHTML += ( inp.value > x ) ? ' Çoxdur':
+                             ( inp.value < x ) ? ' Azdir' : ' Təbriklər tapdin 🥳🥳🥳🥳'
+        }
+
+
+        function rnd(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) ) + min;
+        } 
+       </script>
+</body>
+</html>
